@@ -1,31 +1,29 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const productSchema = new Schema({
-    name: {
+const trabajdorSchema = new Schema({
+    NombreCompleto: {
         type: String,
         required: true,
         minLenght: 1,
         maxLenght: 100
     },
-    price: {
-        type: Number,
-        required: true
-    },
-    quantity: {
-        type: Number,
-        required: true
-    },
-    description: {
+    Cargo: {
         type: String,
         required: true,
         minLenght: 1,
-        maxLenght: 250
+        maxLenght: 100
     },
-    category: {
+    Numero: {
+        type: Number,
+        required: true,
+        minLenght: 1,
+        maxLenght: 100
+    },
+    Empresa: {
         type: [Schema.ObjectId],
         ref: 'Category',
     },
 
-})
+});
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Trabajador', productSchema);

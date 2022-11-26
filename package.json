@@ -1,14 +1,14 @@
 {
-    "name": "ayudantia",
+    "name": "proyecto-isw",
     "version": "1.0.0",
-    "description": "",
+    "description": "Backend-proyecto-isw",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node index.js",
         "dev": "nodemon index.js"
     },
-    "author": "",
+    "author": "Grupo-17",
     "license": "ISC",
     "dependencies": {
         "cors": "^2.8.5",
