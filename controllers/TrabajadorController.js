@@ -20,7 +20,7 @@ const CrearTrabajador = (req, res) => {
 const getTrabajador = (req,res)=>{
     Trabajador.find({},(error,Trabajador)=>{
         if(error){
-            return res.status().send({message:"Sin resultados"});
+            return res.status(400).send({message:"Error.."});
         }
         return res.status(200).send(Trabajador);
     })
