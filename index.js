@@ -31,6 +31,16 @@ app.use('/api',CrearTrabajador);
 //controladores
 //...
 
+const CrearEmpresa = require('./routes/EmpresaRoutes');
+
+app.use(cors());
+app.use(express.json());
+app.options('*',cors());
+
+//ruta Empresa
+
+app.use('/api', CrearEmpresa);
+
 //Comneccion a mogoodb
 mongoose.connect(process.env.DB, options, (error) => {
     if (error) {
