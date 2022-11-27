@@ -15,4 +15,4 @@ const administradorSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('adminstrador', productSchema);
+module.exports = mongoose.model('adminstrador', administradorSchema);

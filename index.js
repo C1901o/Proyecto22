@@ -16,10 +16,14 @@ const options = {
     useUnifiedTopology: true
 }
 
-app.use(cors());
+const CrearTrabajador = require('./routes/TrabajdorRoutes');
 
-//rutas
-//...
+app.use(cors());
+app.use(express.json());
+app.options('*',cors());
+
+//ruta
+app.use('/api',CrearTrabajador);
 
 //config body
 //..

@@ -48,6 +48,11 @@
             "required": true,
             "mainLength": 1, 
             "maxLength": 100
+        },
+        "Registro":{
+            "type": "Schema.ObjectId",
+            "ref": "Registor",
+            "required": true
         }
     },
     "administador":{
@@ -62,13 +67,20 @@
             "required":true,
             "mainLength": 3,
             "maxLength":12
+        },
+        "Registro":{
+            "type": "Schema.ObjectId",
+            "ref": "Registor",
+            "required": true
         }
 
     },
     "Resgisto":{
-        "fecha":{
-            "type":"Date"
+        "informe":{
+            "type":"String",
+            "required":true,
+            "mainLength": 200,
+            "maxLength": 1000
         }
     }
-
 }
