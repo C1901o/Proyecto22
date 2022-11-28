@@ -7,6 +7,8 @@ const registroSchema = new Schema({
         minLenght: 1,
         maxLenght: 100
     },
+    administrador : "String",
+    Empresa : "String"
 });
 
 module.exports = mongoose.model('registro', registroSchema);

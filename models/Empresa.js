@@ -14,7 +14,7 @@ const EmpresaSchema = new Schema({
         maxLength:100
     },
     Numero : {
-        type:number,
+        type: Number,
         required:true,
         mainLength: 3,
         maxLength:12

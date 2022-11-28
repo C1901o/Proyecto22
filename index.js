@@ -17,6 +17,9 @@ const options = {
 }
 
 const CrearTrabajador = require('./routes/TrabajdorRoutes');
+const CrearEmpresa = require('./routes/EmpresaRoutes');
+const CrearRegistro = require('./routes/RegistroRoutes');
+const CrearAdmin = require('./routes/adminRoutes');
 
 app.use(cors());
 app.use(express.json());
@@ -24,7 +27,9 @@ app.options('*',cors());
 
 //ruta
 app.use('/api',CrearTrabajador);
-
+app.use('/api', CrearEmpresa);
+app.use('/api', CrearRegistro);
+app.use('/api', CrearAdmin);
 //config body
 //..
 
