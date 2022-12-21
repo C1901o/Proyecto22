@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 const app = express();
 dotenv.config();
 
-
 const options = {
     useNewUrlParser: true,
     autoIndex: true,
@@ -16,46 +15,32 @@ const options = {
     useUnifiedTopology: true
 }
 
+app.use(cors());
+app.use(express.json());
+app.options('*',cors());
+
+//rutas
 const CrearTrabajador = require('./routes/TrabajdorRoutes');
 const CrearEmpresa = require('./routes/EmpresaRoutes');
 const CrearRegistro = require('./routes/RegistroRoutes');
 const CrearAdmin = require('./routes/adminRoutes');
 
-app.use(cors());
-app.use(express.json());
-app.options('*',cors());
+app.use('/',CrearTrabajador);
+app.use('/', CrearEmpresa);
+app.use('/', CrearRegistro);
+app.use('/', CrearAdmin);
 
-//ruta
-app.use('/api',CrearTrabajador);
-app.use('/api', CrearEmpresa);
-app.use('/api', CrearRegistro);
-app.use('/api', CrearAdmin);
-//config body
-//..
 
-//controladores
-//...
-
-const CrearEmpresa = require('./routes/EmpresaRoutes');
-
-app.use(cors());
-app.use(express.json());
-app.options('*',cors());
-
-//ruta Empresa
-
-app.use('/api', CrearEmpresa);
-
-//Comneccion a mogoodb
+//Conexion a mogoodb
 mongoose.connect(process.env.DB, options, (error) => {
     if (error) {
         console.log(error);
     } else {
-        console.log("Conexion Satisfactoria..");
+        console.log("Conexion Satisfactoria BD-Mongo..");
     }
 })
 
-//proseso de escucha en https://localhost:3000 var en .env
+//proseso de escucha en https://localhost:3001 var en .env
 app.listen(process.env.PORT, () => {
     console.log(`Server started on port ${process.env.PORT}`);
 })

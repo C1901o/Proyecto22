@@ -8,7 +8,7 @@ const administradorSchema = new Schema({
         maxLenght: 100
     },
     NumeroTelefonos: {
-        type:number,
+        type: Number,
         required:true,
         mainLength:3,
         maxLength:12
