@@ -1,18 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const administradorSchema = new Schema({
-    NombreCompleto: {
+const adminSchema = new Schema({
+    Nombre: {
         type: String,
         required: true,
         minLenght: 1,
         maxLenght: 100
     },
-    NumeroTelefonos: {
+    Fono: {
         type: Number,
-        required:true,
-        mainLength:3,
-        maxLength:12
+        required:true
     }
 });
 
-module.exports = mongoose.model('adminstrador', administradorSchema);
+module.exports = mongoose.model('adminstrador', adminSchema);

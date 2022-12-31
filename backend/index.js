@@ -5,42 +5,42 @@ const dotenv = require('dotenv');
 const app = express();
 dotenv.config();
 
-const options = {
-    useNewUrlParser: true,
-    autoIndex: true,
-    keepAlive: true,
-    connectTimeoutMS: 10000,
-    socketTimeoutMS: 45000,
-    family: 4,
-    useUnifiedTopology: true
-}
-
 app.use(cors());
 app.use(express.json());
 app.options('*',cors());
 
 //rutas
-const CrearTrabajador = require('./routes/TrabajdorRoutes');
-const CrearEmpresa = require('./routes/EmpresaRoutes');
-const CrearRegistro = require('./routes/RegistroRoutes');
-const CrearAdmin = require('./routes/adminRoutes');
+const Trabajador = require('./routes/TrabajdorRoutes');
+const Empresa = require('./routes/EmpresaRoutes');
+const Registro = require('./routes/RegistroRoutes');
+const Admin = require('./routes/adminRoutes');
+const vecino = require('./routes/vecinosRoutes');
+const mail = require('./routes/mailRoutes');
 
-app.use('/',CrearTrabajador);
-app.use('/', CrearEmpresa);
-app.use('/', CrearRegistro);
-app.use('/', CrearAdmin);
+//direcciones
+app.use('/',Trabajador);
+app.use('/empresa', Empresa);
+app.use('/registro', Registro);
+app.use('/admin', Admin);
+app.use('/vecino', vecino)
+app.use('/',mail);
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 //Conexion a mogoodb
-mongoose.connect(process.env.DB, options, (error) => {
+mongoose.connect(process.env.DB,(error) => {
     if (error) {
+        console.log("error sin db")
         console.log(error);
     } else {
         console.log("Conexion Satisfactoria BD-Mongo..");
     }
 })
 
-//proseso de escucha en https://localhost:3001 var en .env
+//proseso de escucha en http://localhost:3001 var en .env
 app.listen(process.env.PORT, () => {
     console.log(`Server started on port ${process.env.PORT}`);
 })

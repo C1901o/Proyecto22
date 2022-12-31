@@ -48,11 +48,6 @@
             "required": true,
             "mainLength": 1, 
             "maxLength": 100
-        },
-        "Registro":{
-            "type": "Schema.ObjectId",
-            "ref": "Registor",
-            "required": true
         }
     },
     "administador":{
@@ -67,20 +62,56 @@
             "required":true,
             "mainLength": 3,
             "maxLength":12
-        },
-        "Registro":{
-            "type": "Schema.ObjectId",
-            "ref": "Registor",
-            "required": true
         }
-
     },
     "Resgisto":{
         "informe":{
-            "type":"String",
-            "required":true,
-            "mainLength": 200,
-            "maxLength": 1000
+            "type":"buffer",
+            "required":true
+        },
+        "fecha":{
+            "type":"date",
+            "required":true
+        },
+        "administador":{
+            "type":"Schema.ObjectId",
+            "required":true
+        },
+        "Trabajador":{
+            "type":"Schema.ObjectId",
+            "required":true
+        }
+    },
+    "Vecinos":{
+        "Nombre":{
+            "type": "String",
+            "required": true,
+            "mainLength": 1, 
+            "maxLength": 20
+        },
+        "apellido":{
+            "type": "String",
+            "required": false,
+            "mainLength": 1, 
+            "maxLength": 20
+        },
+        "tipo":{
+            "type": "String",
+            "required": false,
+            "mainLength": 1, 
+            "maxLength": 40
+        },
+        "telefono":{
+            "type": "number",
+            "required": true,
+            "mainLength": 1, 
+            "maxLength": 20
+        },
+        "Correo":{
+            "type": "String",
+            "required": true,
+            "mainLength": 1, 
+            "maxLength": 100
         }
     }
 }

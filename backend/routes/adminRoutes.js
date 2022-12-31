@@ -1,9 +1,11 @@
 const express = require('express');
-const administrador = require('../controllers/administradorController');
+const adminController = require('../controllers/administradorController');
 const api = express.Router();
 
-api.post('/Registro', administrador.Crearadmin);
-api.get('/Bqregistro', administrador.getadmin);
-
+api.post('/admin/crear', adminController.Crearadmin);
+api.get('/admin/ver', adminController.getalladmin);
+api.get('/admin/search/:id', adminController.getadmin);
+api.put('/admin/update/:id', adminController.updateadmin);
+api.delete('/admin/delete/:id', adminController.deleteadmin);
 
 module.exports = api

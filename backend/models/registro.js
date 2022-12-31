@@ -2,13 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const registroSchema = new Schema({
     Informe: {
-        type: String,
-        required: true,
-        minLenght: 1,
-        maxLenght: 100
+        type: Buffer,
+        required: true
     },
-    administrador : "String",
-    Empresa : "String"
+    fecha:{
+      type: Date,
+      required: true  
+    },
+    administrador :{
+        type: Schema.Types.ObjectId,
+        ref :'administrador'
+    },
+    Empresa : {
+        type: Schema.Types.ObjectId,
+        ref: 'empresa'
+    }
 });
 
 module.exports = mongoose.model('registro', registroSchema);

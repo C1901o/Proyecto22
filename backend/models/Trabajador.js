@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const trabajdorSchema = new Schema({
+const TrabajadorSchema = new Schema({
     Nombre: {
         type: String,
         required: true,
@@ -18,7 +18,11 @@ const trabajdorSchema = new Schema({
         required: true,
         minLenght: 1,
         maxLenght: 100
+    },
+    Empresa:{
+        type: Schema.Types.ObjectId,
+        ref: 'Empresa'
     }
 });
 
-module.exports = mongoose.model('Trabajador', trabajdorSchema);
+module.exports = mongoose.model('Trabajador', TrabajadorSchema);
