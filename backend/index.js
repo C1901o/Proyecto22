@@ -14,15 +14,15 @@ const Trabajador = require('./routes/TrabajdorRoutes');
 const Empresa = require('./routes/EmpresaRoutes');
 const Registro = require('./routes/RegistroRoutes');
 const Admin = require('./routes/adminRoutes');
-const vecino = require('./routes/vecinosRoutes');
+const persona = require('./routes/vecinosRoutes');
 const mail = require('./routes/mailRoutes');
 
 //direcciones
 app.use('/',Trabajador);
-app.use('/empresa', Empresa);
+app.use('/', Empresa);
 app.use('/registro', Registro);
-app.use('/admin', Admin);
-app.use('/vecino', vecino)
+app.use('/', Admin);
+app.use('/',persona)
 app.use('/',mail);
 
 mongoose.set('useNewUrlParser', true);

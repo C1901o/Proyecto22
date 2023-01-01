@@ -1,11 +1,10 @@
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const lista = require('./vecinoscontroller')
-const vecinos = require('../models/vecinos');
 dotenv.config();
 
 const sendmail = (req, res) => {
-    const { message } = req.body
+    const { message,correos } = req.body
+    console.log(req.body)
     const token = process.env.key
     const mail = 'notificaciones@alumnos.ubiobio.cl'
     if (!token) {
@@ -21,12 +20,12 @@ const sendmail = (req, res) => {
         }
     })
     let directory = [
-        
+        `${correos}`
     ]
     const mailOptions = {
-        from: `Notificaciones`,
+        from: `Notificaciones <noresponder>`,
         to: directory,
-        subject: 'No-Responder',
+        subject: 'Informaciones',
         text: `${message}`
     }
     transporter.sendMail(mailOptions, (err, info) => {

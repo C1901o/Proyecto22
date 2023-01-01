@@ -1,17 +1,17 @@
 const Registro = require ('../models/registro');
 
 const CrearRegistro = (req, res) => {
-    const { Informe,Fecha,administrador,Empresa} = req.body;
-
-    const Registro = new Registro({
+    const { Informe,fecha,administrador,Empresa} = req.body;
+    const newRegistro = new Registro({
         Informe,
-        Fecha,
+        fecha,
         administrador,
         Empresa
     });
     
-    Registro.save((error, Registro) => {
+    newRegistro.save((error, Registro) => {
         if (error) {
+            console.log(error)
             return res.status(400).send({ message: "No se ha podido crear el Registro" })
         }
         return res.status(201).send(Registro)

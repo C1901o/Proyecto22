@@ -28,15 +28,6 @@ const getallvecinos = (req,res)=>{
         return res.status(200).send(vecinos);
     })
 }
-/*
-const getcorreos = ()=>{
-    vecinos.find({},{"Correo":1,"_id":0},(error,vecinos)=>{
-        if(error){
-            return console.log("error")
-        }
-        return vecinos
-    })
-}*/
 
 const getvecino = (req, res) => {
     const { id } = req.params
@@ -82,6 +73,5 @@ module.exports = {
     getallvecinos,
     getvecino,
     updatevecinos,
-    deletevecinos,
-    getcorreos
+    deletevecinos
 }

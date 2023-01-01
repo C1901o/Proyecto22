@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const registroSchema = new Schema({
     Informe: {
-        type: Buffer,
+        type: String,
         required: true
     },
     fecha:{
@@ -10,12 +10,12 @@ const registroSchema = new Schema({
       required: true  
     },
     administrador :{
-        type: Schema.Types.ObjectId,
-        ref :'administrador'
+        type: Schema.ObjectId,
+        ref :'administrado'
     },
     Empresa : {
-        type: Schema.Types.ObjectId,
-        ref: 'empresa'
+        type: Schema.ObjectId,
+        ref: 'Empresa'
     }
 });
 

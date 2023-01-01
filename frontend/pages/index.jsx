@@ -1,14 +1,17 @@
 import { useState } from "react"
-import { Button, Container, Stack, Input ,Heading,Image} from "@chakra-ui/react"
+import { Button, Container, Stack, Input ,Heading,Image, Flex} from "@chakra-ui/react"
 
 export default function Home() {
   return (
-      <Container centerContent maxW="md" my={150}>
-        <Image  background={"#1a365d"} boxSize='200px' fallbackSrc='https://www.ubiobio.cl/mcc/images/ubbdescargagradientesolo.png' alt='FACE UBB' />
-        <Heading>Login</Heading>
-        <Input placeholder="Correo Electronico" type={"email"} my={8} textAling={"Center"}></Input>
-        <Input placeholder="Contraseña" type={"password"}></Input>
-        <Button my={10}>Ingresar</Button>
-      </Container> 
+    <Stack p={90}>
+      <Flex my={100} Heading="100vh" alignItems="center" justifyContent="center">
+        <Flex direction="column" background="gray.100" p={12} rounded={6}>
+          <Heading mb={6}>Ingresar</Heading>
+          <Input variant={"filled"} placeholder="nombre@correo.cl" type={"email"} mb={3}/>
+          <Input placeholder="******" type={"password"} mb={6}/>
+          <Button colorScheme="telegram">Ingresa</Button>
+        </Flex>
+      </Flex>
+    </Stack>
   )
 }
