@@ -178,8 +178,12 @@ const perfilAdmin =()=>{
                             <CardBody>
                                 <Stack divider={<StackDivider />} spacing='3'>
                                     <Box>
-                                        <Heading size='xs'>Apellido</Heading>
+                                        <Heading size='xs'>Numero</Heading>
                                         <Text pt='3' fontSize='sm'>{admin.fono}</Text>
+                                    </Box>
+                                    <Box>
+                                        <Heading size='xs'>Correo</Heading>
+                                        <Text pt='3' fontSize='sm'>{admin.Correo}</Text>
                                     </Box>
                                     <Button colorScheme='teal' variant='solid'onClick={()=>{routes.push()}}>eliminar</Button>
                                 </Stack>
@@ -192,7 +196,9 @@ const perfilAdmin =()=>{
     return(
         <Flex>
             <Container maxW="container.xl">
-                <Heading my={50} textAlign={"Center"}>Bienvenido A Tu Pefil</Heading>
+                <Button left={'1000'} my={'10'} onClick={()=>{routes.push('/')}}>Cerrar sesion</Button>
+                <Heading  textAlign={"Center"}>Bienvenido A Tu Pefil</Heading>
+                
                 <Menu>
                     <MenuButton as={Button}>
                         Opciones

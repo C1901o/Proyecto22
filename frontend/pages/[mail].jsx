@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router'
+/*import { useRouter } from 'next/router'
 import axios from 'axios'
 import { Container, Heading, Button } from '@chakra-ui/react'
 
 //crear funcion busqueda correos
 //crear ruta para enviar correo
 
-
+/*
 const notificar = () => {
 
     const ruta = useRouter()
@@ -18,4 +18,4 @@ const notificar = () => {
     )
 }
 
-export default notificar
+export default notificar*/

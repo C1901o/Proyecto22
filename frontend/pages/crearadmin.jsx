@@ -8,7 +8,8 @@ const crearadmin=()=>{
     const ruta= useRouter()
     const [valores,setvalores]= useState({
         Nombre:'',
-        Fono:''
+        Fono:'',
+        Correo:''
     })
 
 
@@ -54,6 +55,10 @@ const crearadmin=()=>{
                     <FormControl my={3}>
                         <FormLabel>Telefono</FormLabel>
                         <Input placeholder="9 1234 5678" type={"number"} onChange={onChange} name={"Fono"} />
+                    </FormControl>
+                   <FormControl my={3}>
+                        <FormLabel>Correo</FormLabel>
+                        <Input placeholder="nombre@gmail.com" type={"email"} onChange={onChange} name={"Correo"} />
                     </FormControl>
                     <FormControl >
                         <Button mx={5} type="submit" onClick={onSubmint}>Crear</Button>

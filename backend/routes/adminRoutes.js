@@ -7,5 +7,6 @@ api.get('/admin/ver', adminController.getalladmin);
 api.get('/admin/search/:id', adminController.getadmin);
 api.put('/admin/update/:id', adminController.updateadmin);
 api.delete('/admin/delete/:id', adminController.deleteadmin);
+api.post('/admin/login', adminController.login);
 
 module.exports = api

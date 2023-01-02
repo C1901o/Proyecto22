@@ -10,6 +10,10 @@ const adminSchema = new Schema({
     Fono: {
         type: Number,
         required:true
+    },
+    Correo:{
+        type:String,
+        required:true
     }
 });
 

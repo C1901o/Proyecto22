@@ -1,12 +1,14 @@
 const admin = require('../models/administrado');
+const bcrypt = require('bcrypt');
 
 const Crearadmin = (req, res) => {
-    const { Nombre ,Fono} = req.body;
+    const { Nombre ,Fono,Correo} = req.body;
     console.log(req.body)
 
     const newadmin = new admin({
         Nombre,
-        Fono
+        Fono,
+        Correo
     });
     
     newadmin.save((error, admin) => {
@@ -65,11 +67,26 @@ const deleteadmin = (req, res) => {
     })
 }
 
+const login = (req, res) => {
+    console.log(req.body)
+    const{ email } = req.body;
+        admin.findOne({ email }, (err,user)=>{
+            if(err){
+                return res.status(400).send({message: "Error de usuario"});
+            }
+            if(!admin){
+                return res.status(404).send({ message: "Usuario ya existe"});
+            }
+            return res.status(200).send({message: "Se ha logueado", user:email,rol:"admin", password:"pass"});
+        })
+    }
+
 
 module.exports = {
     Crearadmin,
     getadmin,
     getalladmin,
     updateadmin,
-    deleteadmin
+    deleteadmin,
+    login
 }
