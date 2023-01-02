@@ -65,6 +65,7 @@ const deleteadmin = (req, res) => {
     })
 }
 
+
 module.exports = {
     Crearadmin,
     getadmin,

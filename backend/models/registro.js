@@ -1,20 +1,30 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const registroSchema = new Schema({
-    Informe: {
+    Nombre:{
+        type:String,
+        require: true
+    },
+    Encargado: {
         type: String,
-        required: true
+        required: false
     },
     fecha:{
       type: Date,
-      required: true  
+      required: false  
+    },
+    Tiempo:{
+        type:String,
+        require:false
     },
     administrador :{
-        type: Schema.ObjectId,
+        type: String,
+        require:true,
         ref :'administrado'
     },
     Empresa : {
-        type: Schema.ObjectId,
+        type: String,
+        require:true,
         ref: 'Empresa'
     }
 });

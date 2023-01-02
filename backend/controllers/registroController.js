@@ -1,10 +1,13 @@
 const Registro = require ('../models/registro');
 
 const CrearRegistro = (req, res) => {
-    const { Informe,fecha,administrador,Empresa} = req.body;
+    const { Nombre,Encargado,Informe,fecha,Tiempo,administrador,Empresa} = req.body;
     const newRegistro = new Registro({
+        Nombre,
+        Encargado,
         Informe,
         fecha,
+        Tiempo,
         administrador,
         Empresa
     });
@@ -65,6 +68,7 @@ const deleteRegistro = (req, res) => {
         return res.status(200).send({ message: "Registro eliminado exitosamente" })
     })
 }
+
 
 
 module.exports = {
