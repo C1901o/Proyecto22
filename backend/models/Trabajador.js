@@ -17,7 +17,7 @@ const TrabajadorSchema = new Schema({
         type: Number,
         required: true,
         minLenght: 1,
-        maxLenght: 100
+        maxLenght: 20
     },
     Empresa:{
         type: Schema.Types.ObjectId,

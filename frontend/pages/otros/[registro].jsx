@@ -5,6 +5,7 @@ import { Container, Heading, Button } from '@chakra-ui/react'
 export async function getServerSideProps(context) {
     try {
         const response = await axios.delete(`${process.env.url}/registro/delete/${context.params.registro}`)
+        //llamar a mail para enviar mail a dmin y epresa
         return {
             props: {
                 data: null

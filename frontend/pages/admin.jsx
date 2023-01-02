@@ -109,11 +109,90 @@ const perfilAdmin =()=>{
         })
     }
 
+    const [vecinos, setvecinos] = useState([])
+
+    const getallvecinos = async () => {
+        const response = await axios.get(`${process.env.url}/vecinos/ver`)
+        setvecinos(response.data)
+    }
+
+    useEffect(() => {
+        getallvecinos()
+    }, [])
+
+    const showvecino = () => {
+    
+        return vecinos.map(vecino => {
+            return (
+                        <Card my={6} mx={3}>
+                            <CardHeader>
+                                <Heading size='md'>Nombre</Heading>
+                                <Text pt='2' fontSize='sm'>{vecino.Nombre}</Text>
+                            </CardHeader>
+                            <CardBody>
+                                <Stack divider={<StackDivider />} spacing='3'>
+                                    <Box>
+                                        <Heading size='xs'>Apellido</Heading>
+                                        <Text pt='3' fontSize='sm'>{vecino.Apellido}</Text>
+                                    </Box>
+                                    <Box>
+                                        <Heading size='xs' textTransform='uppercase'>Casa</Heading>
+                                        <Text pt='3' fontSize='sm'>{vecino.Casa}</Text>
+                                    </Box>
+                                    <Box>
+                                        <Heading size='xs' textTransform='uppercase'>Fono</Heading>
+                                        <Text pt='2' fontSize='sm'>{vecino.Telefono}</Text>
+                                    </Box>
+                                    <Box>
+                                        <Heading size='xs' textTransform='uppercase'>Correo</Heading>
+                                        <Text pt='2' fontSize='sm'>{vecino.Correo}</Text>
+                                    </Box>
+                                    <Button colorScheme='teal' variant='solid'onClick={()=>{routes.push()}}>Notificar</Button>
+                                </Stack>
+                            </CardBody>
+                        </Card>
+            )
+        })
+    }
+
+    const [administradores, setadministradores] = useState([])
+
+    const getalladministradores = async () => {
+        const response = await axios.get(`${process.env.url}/admin/ver`)
+        setadministradores(response.data)
+    }
+
+    useEffect(() => {
+        getalladministradores()
+    }, [])
+
+    const showadministradores = () => {
+    
+        return administradores.map(admin => {
+            return (
+                        <Card my={6} mx={3}>
+                            <CardHeader>
+                                <Heading size='md'>Nombre</Heading>
+                                <Text pt='2' fontSize='sm'>{admin.Nombre}</Text>
+                            </CardHeader>
+                            <CardBody>
+                                <Stack divider={<StackDivider />} spacing='3'>
+                                    <Box>
+                                        <Heading size='xs'>Apellido</Heading>
+                                        <Text pt='3' fontSize='sm'>{admin.fono}</Text>
+                                    </Box>
+                                    <Button colorScheme='teal' variant='solid'onClick={()=>{routes.push()}}>eliminar</Button>
+                                </Stack>
+                            </CardBody>
+                        </Card>
+            )
+        })
+    }
 
     return(
         <Flex>
             <Container maxW="container.xl">
-                <Heading my={50} textAlign={"Center"}>Bienvenido</Heading>
+                <Heading my={50} textAlign={"Center"}>Bienvenido A Tu Pefil</Heading>
                 <Menu>
                     <MenuButton as={Button}>
                         Opciones
@@ -121,6 +200,8 @@ const perfilAdmin =()=>{
                     <MenuList>
                         <MenuItem onClick={()=>routes.push('/Registro')}>Crear registro</MenuItem>
                         <MenuItem onClick={()=>routes.push('/empresa')}>Crear empresa</MenuItem>
+                        <MenuItem onClick={()=>routes.push('/vecino')}>Crear Vecino</MenuItem>
+                        <MenuItem onClick={()=>routes.push('/crearadmin')}>Crear nuevo administrador</MenuItem>
                     </MenuList>
                 </Menu>
                 <Accordion allowToggle>
@@ -146,6 +227,32 @@ const perfilAdmin =()=>{
                             <AccordionPanel>
                                 <Grid templateColumns='repeat(5, 1fr)' textAlign={"center"} border='1px' borderColor={'Menu'} borderRadius={'3xl'}>
                                     {showempresa()}
+                                </Grid>
+                            </AccordionPanel>
+                        </h2>
+                    </AccordionItem>
+                    <AccordionItem>
+                        <h2>
+                            <AccordionButton>
+                                <Box as="span" flex='1' textAlign='left'>Vecinos</Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                            <AccordionPanel>
+                                <Grid templateColumns='repeat(5, 1fr)' textAlign={"center"} border='1px' borderColor={'Menu'} borderRadius={'3xl'}>
+                                    {showvecino()}
+                                </Grid>
+                            </AccordionPanel>
+                        </h2>
+                    </AccordionItem>
+                    <AccordionItem>
+                        <h2>
+                            <AccordionButton>
+                                <Box as="span" flex='1' textAlign='left'>Administradores</Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                            <AccordionPanel>
+                                <Grid templateColumns='repeat(5, 1fr)' textAlign={"center"} border='1px' borderColor={'Menu'} borderRadius={'3xl'}>
+                                    {showadministradores()}
                                 </Grid>
                             </AccordionPanel>
                         </h2>
